@@ -1,4 +1,4 @@
-const connectToDatabase = require('../db');
+const connectToDatabase = require('../../db');
 const {login,me} = require('../../services/auth');
 
 module.exports.login = (event, context) => {

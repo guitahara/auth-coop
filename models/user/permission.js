@@ -7,4 +7,4 @@ const PermissionSchema = new mongoose.Schema({
     roles: [{type:String,required:false}]
 });
 
-module.exports = mongoose.model('permission',PermissionSchema,'permissions');
+module.exports = mongoose.model('permission', PermissionSchema,'permissions');

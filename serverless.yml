@@ -24,7 +24,7 @@ functions:
           cors: true
   
   register:
-    handler: handlers/auth/AuthHandler.register
+    handler: handlers/user/UserHandler.register
     events:
       - http:
           path: register
