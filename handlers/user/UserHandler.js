@@ -1,5 +1,5 @@
 const connectToDatabase = require('../db');
-const User = require('./User');
+const {register, getUsers} = require('../../services/user');
 
 module.exports.getUsers = (event, context) => {
      context.callbackWaitsForEmptyEventLoop = false;
@@ -17,8 +17,17 @@ module.exports.getUsers = (event, context) => {
         }));
 };
 
-function getUsers() {
-    return User.find({})
-        .then(users => users)
-        .catch(err => Promise.reject(new Error(err)));
-}
+module.exports.register = (event, context) => {
+    context.callbackWatisForEmptyEventLoop = false;
+
+    return connectToDatabase()
+        .then(() => register(JSON.parse(event.body)))
+        .then(session => ({
+            statusCode: 200,
+            body: JSON.stringify(session)
+        }))
+        .catch(err => ({
+            statusCode: err.statusCode || 500,
+            body: JSON.stringify({message:err.message})
+        }));
+};

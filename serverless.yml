@@ -13,10 +13,10 @@ provider:
 
 functions:
   verify-token:
-    handler: auth/VerifyToken.auth
+    handler: handlers/auth/VerifyToken.auth
 
   login:
-    handler: auth/AuthHandler.login
+    handler: handlers/auth/AuthHandler.login
     events:
       - http:
           path: login
@@ -24,7 +24,7 @@ functions:
           cors: true
   
   register:
-    handler: auth/AuthHandler.register
+    handler: handlers/auth/AuthHandler.register
     events:
       - http:
           path: register
@@ -32,7 +32,7 @@ functions:
           cors: true
   
   me:
-    handler: auth/AuthHandler.me
+    handler: handlers/auth/AuthHandler.me
     events:
       - http:
           path: me
@@ -41,7 +41,7 @@ functions:
           authorizer: verify-token
   
   getUsers:
-    handler: user/UserHandler.getUsers
+    handler: handlers/user/UserHandler.getUsers
     events:
       - http:
           path: users
