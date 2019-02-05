@@ -1,0 +1,5 @@
+{
+    "db":"DB_CONNECTION",
+    "secret":"ENV_SECRET",
+    "salt":"ENV_SALT"
+}
